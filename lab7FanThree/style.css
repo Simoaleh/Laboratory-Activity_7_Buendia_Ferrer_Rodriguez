@@ -120,18 +120,22 @@ body {
     width: 100%; 
 }
 /* Apply horizontal padding/margin to all individual fields and buttons */
-.form-field-wrapper, .terms-checkbox, .register-button {
-    /* Remove horizontal margins added previously */
-    margin: 0; 
+/* Fix placeholder alignment for all inputs */
+.form-field-wrapper input {
+    text-align: center !important;
+    margin-left: -25px;
+}
+
+/* Make sure password placeholder is centered too */
+.password-field input {
+    text-align: center !important;
 }
 .input-group {
     display: flex;
     gap: 15px;
     width: 100%;
 }
-.input::placeholder{
-    margin:-2vh !important;
-}
+
 .input-group > .form-field-wrapper {
     flex-grow: 1;
 }
@@ -240,7 +244,7 @@ input[type="checkbox"]:checked {
     border: none;
     cursor: pointer;
     margin-top: 10px;
-    font-size: 1.3em;
+    font-size: 1.9em;
 }
 
 /* Error Message Styling */
@@ -253,3 +257,4 @@ input[type="checkbox"]:checked {
     height: 1.5em; /* Ensure enough vertical space */
     text-align: center;
 }
+
