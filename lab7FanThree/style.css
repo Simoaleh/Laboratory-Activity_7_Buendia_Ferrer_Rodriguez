@@ -1,0 +1,255 @@
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+/* --- 1. Basic Setup & Background Stretch (Full Screen) --- */
+body {
+    padding: 0;
+    font-family:'Work Sans', sans-serif;
+    font-weight:bolder;
+    /* Sets the background color to the light beige/off-white color from the form body */
+    background-color: #f0f0e8; 
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;    /* Center vertically */
+    min-height: 100vh;      /* Ensure it takes up the full screen height */
+    text-align:center;
+    margin:0;
+}
+
+.container {
+/* KEY CHANGE: Force the container to fill the entire viewport dimensions */
+    width: 100vw;   /* 100% of the viewport width */
+    height: 100vh;  /* 100% of the viewport height */
+    
+ background-color: #f0f0e8;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the form block horizontally */
+    
+    /* The padding is now on the content *inside* the container */
+    padding: 0;
+}
+.form-content-wrapper {
+    /* Max width prevents the input fields from stretching unreasonably wide */
+    max-width: 450px; 
+    width: 100%; 
+    height: 100%; /* Allows it to take up the full height of the container */
+    display: flex;
+    flex-direction: column;
+    
+    /* Center the block vertically within the 100vh container */
+    justify-content: center; 
+    align-items: center;
+}
+
+/* --- 2. Header Styling (Full Width) --- */
+.header {
+    background-color: #558B5E; 
+    color: white;
+    /* Removed the justify-content property */
+    display: flex;
+    font-size: 3em;
+    align-items: center;
+    justify-content: flex-start; /* Keep logo on the left */
+    gap: 0px;
+    padding: 25px 0; 
+    border-bottom: 5px solid #DED8C6; 
+    position: relative; /* CRUCIAL: Makes it the reference point for absolute positioning */
+    width: 100%;
+    box-sizing: border-box;
+}
+.header-title {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+    
+    /* CRUCIAL: Center the title absolutely */
+    position: absolute; 
+    left: 50%; /* Start position at the horizontal center */
+    transform: translateX(-50%); /* Shift it back by half its own width */
+    margin: 0; /* Remove default margin that could interfere */
+    white-space: nowrap; /* Prevents wrapping */
+}
+
+/* Add horizontal space/margin to the header content */
+.logo-box{
+    margin-left: 5%; /* Pushes the logo away from the left edge */
+    max-width: 100px;
+    max-height: 100px;
+}
+.logo {
+    /* REMOVE THIS LINE: margin-left:-8dvh; */
+    margin-left: -4dvh; 
+    width: 100px; /* Set a fixed size */
+    height: 100px;
+    border-radius: 50%; /* If your logo needs a circular background */
+}
+
+.header-title {
+    font-size: 2em;
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* --- 3. Form Container & Grouping --- */
+.register-form {
+    padding: 40px 0; 
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+.input-group {
+    display: flex;
+    gap: 15px;
+    /* Apply horizontal padding to the input group */
+    margin: 0 0; 
+}
+
+/* --- 4. Form Field Styling (The rounded, deep-set green boxes) --- */
+.register-form {
+    padding: 40px 0; 
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    /* Form itself must be limited in width */
+    width: 100%; 
+}
+/* Apply horizontal padding/margin to all individual fields and buttons */
+.form-field-wrapper, .terms-checkbox, .register-button {
+    /* Remove horizontal margins added previously */
+    margin: 0; 
+}
+.input-group {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+.input::placeholder{
+    margin:-2vh !important;
+}
+.input-group > .form-field-wrapper {
+    flex-grow: 1;
+}
+.terms-checkbox{
+    text-align:center;
+    justify-content: center;
+}
+
+.form-field-wrapper {
+    background-color: #558B5E; 
+    border-radius: 30px; 
+    box-shadow: 0 4px 0 0 #dac0a4; 
+}
+
+.form-field-wrapper input {
+    background: none;
+    border: none;
+    color: white; 
+    font-family:'Work Sans', sans-serif;
+    font-size: 2em; /* Larger text for full screen view */
+    font-weight: 500;
+    width: 100%;
+    padding: 20px 25px; /* Larger padding for a stretched look */
+    outline: none;
+    text-align: center; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.form-field-wrapper input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    opacity: 1;
+}
+
+/* Specific styling for the password field with the icon */
+.password-field {
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.password-field input {
+    flex-grow: 1;
+    text-align: left; 
+    padding-right: 5px; 
+}
+
+.password-toggle {
+    cursor: pointer;
+    font-size: 1.4em;
+    color: white;
+}
+
+/* --- 5. Checkbox and Button Styling --- */
+
+.terms-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1em;
+    color: #4A7751;
+    margin-top: 5px;
+}
+
+.terms-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+/* Hide the default checkbox */
+input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #555;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: white;
+}
+
+/* Change background when checked */
+input[type="checkbox"]:checked {
+  background-color: #4A7751; /* green background */
+  border-color: #0b1b0c;
+}
+.terms-checkbox input:checked::after {
+  content: "✔";
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 3px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+
+.register-button {
+    background-color: #558B5E;
+    color: white;
+    padding: 20px 25px;
+    border-radius: 30px;
+    box-shadow: 0 4px 0 0 #4A7751;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 1.3em;
+}
+
+/* Error Message Styling */
+.error-message {
+    color: #ff4d4d; 
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: -10px;
+    margin-bottom: 5px;
+    height: 1.5em; /* Ensure enough vertical space */
+    text-align: center;
+}

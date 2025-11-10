@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial scale=1.0"> 
+        <title> Registration Form</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <script src="script.js"></script>
+    <div class="container">
+        <div class="header">
+            <div class="logo-box">
+                <img src="assets/Logo.png" alt="Manco Logo" class="logo">
+            </div>
+            <h1 class="header-title">Registration</h1>
+        </div>
+        <div class="form-content-wrapper">
+        
+        <form class="register-form" action="/register" method="POST">
+            <div class="input-group">
+                <div class="form-field-wrapper">
+                <label for="username"></label>
+                <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-field-wrapper password-field">
+                    <input type="password" placeholder="••••••••" name="password">
+                    <span class="password-toggle">👁️</span>
+                </div>
+            </div>
+                <div class="form-field-wrapper">
+                <input type="Email" placeholder="EMAIL" name="email" required>
+            </div>
+
+            <div class="form-field-wrapper">
+                <input type="Address" placeholder="ADDRESS" name="address">
+            </div>
+
+            <div class="form-field-wrapper">
+                <input type="Number" placeholder="NUMBER" name="phone">
+            </div>
+
+           
+            
+            <button type="submit" class="register-button">
+                register
+            </button>
+             <div class="terms-checkbox">
+            <input type="checkbox" id="terms-agree" name="terms" required>
+            <label for="terms-agree">I agree to the Terms & Conditions</label>
+            <span class="checkmark"></span>
+            </div>
+        </form>
+        </div>
+    </div>
+</body>
+</html>
