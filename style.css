@@ -272,13 +272,14 @@ input[type="checkbox"]:checked {
   text-decoration: none;
   border-radius: 30px; /* rounded pill shape */
   font-weight: bold;
-  font-size: 16px;
+  font-size: 32px;
   text-transform: uppercase;
   box-shadow: 0 4px 0 0 #dac0a4; 
   transition: all 0.2s ease;
   cursor: pointer;
   text-align: center;
   width:30%;
+  margin-bottom:1dvh;
   max-height:30%;
 }
 
