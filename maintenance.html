@@ -9,15 +9,67 @@
         </title>
     </head>
     <body>
+        <script>
+        // lightweight toast (reuses styling from style.css if loaded elsewhere; adds minimal inline style fallback)
+        (function(){
+            function ensureContainer(){
+                let c=document.querySelector('.toast-container');
+                if(!c){
+                    c=document.createElement('div');
+                    c.className='toast-container';
+                    c.style.position='fixed';
+                    c.style.top='18px';
+                    c.style.right='18px';
+                    c.style.display='flex';
+                    c.style.flexDirection='column';
+                    c.style.gap='10px';
+                    c.style.zIndex='9999';
+                    document.body.appendChild(c);
+                }
+                return c;
+            }
+            function showToast(msg){
+                const c=ensureContainer();
+                const t=document.createElement('div');
+                t.className='toast toast--success';
+                t.textContent=msg;
+                t.style.minWidth='200px';
+                t.style.padding='10px 14px';
+                t.style.background='#2e7d32';
+                t.style.color='#fff';
+                t.style.borderRadius='8px';
+                t.style.boxShadow='0 4px 12px rgba(0,0,0,.25)';
+                t.style.opacity='0';
+                t.style.transition='opacity .25s ease, transform .25s ease';
+                t.style.transform='translateY(-6px)';
+                c.appendChild(t);
+                requestAnimationFrame(()=>{t.style.opacity='1';t.style.transform='translateY(0)';});
+                setTimeout(()=>{
+                    t.style.opacity='0';
+                    t.style.transform='translateY(-6px)';
+                    t.addEventListener('transitionend',()=>t.remove(),{once:true});
+                },2500);
+            }
+            document.addEventListener('DOMContentLoaded',()=>{
+                const btn=document.getElementById('backupButton');
+                if(btn){
+                    btn.addEventListener('click',()=>{
+                        // simulate backup process instantly
+                        showToast('Data backup completed');
+                    });
+                }
+            });
+        })();
+        </script>
         <div class="header">
-            <div class="site-logo">
-                Logo
+           <div class="logo-box">
+                <img src="assets/Logo.png" alt="Manco Logo" class="logo">
             </div>
-            <div class="site-title">
-                Maintenance
+            <div class="header-title">
+                Main Menu
             </div>
-            <div class="site-back">
-                <button class="back-button">
+            <div class="header-back">
+                 <button type="button" class="back-button" onclick="window.location.href='Index.html'">
                     Back
                 </button>
             </div>

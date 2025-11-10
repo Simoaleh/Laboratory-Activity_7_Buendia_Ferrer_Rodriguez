@@ -12,15 +12,92 @@ body {
 }
 
 .header {
-    background-color: #4a7750;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
+    background-color: #558B5E; 
     color: white;
-    font-size: 24px;
-    box-shadow: 100px #dac0a4;
-    height: 40px;
+    /* Removed the justify-content property */
+    display: flex;
+    font-size: 3em;
+    align-items: center;
+    justify-content: flex-start; /* Keep logo on the left */
+    gap: 0px;
+    padding: 25px 0; 
+    border-bottom: 5px solid #DED8C6; 
+    position: relative; /* CRUCIAL: Makes it the reference point for absolute positioning */
+    width: 100%;
+    box-sizing: border-box;
+}
+.header-title {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+    
+    /* CRUCIAL: Center the title absolutely */
+    position: absolute; 
+    left: 50%; /* Start position at the horizontal center */
+    transform: translateX(-50%); /* Shift it back by half its own width */
+    margin: 0; /* Remove default margin that could interfere */
+    white-space: nowrap; /* Prevents wrapping */
+}
+.header-back {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+    
+    /* Move to the far right */
+    position: absolute;
+    right: 0;          /* Align to the right edge */
+    margin-right: 50px;
+    white-space: nowrap;
+}
+.logo-box{
+    margin-left: 5%; /* Pushes the logo away from the left edge */
+    max-width: 100px;
+    max-height: 100px;
+}
+.logo {
+    /* REMOVE THIS LINE: margin-left:-8dvh; */
+    margin-left: -4dvh; 
+    width: 100px; /* Set a fixed size */
+    height: 100px;
+    border-radius: 50%; /* If your logo needs a circular background */
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.back-button {
+  display: inline-block;
+  padding: 20px 25px;
+  background-color: #558B5E;
+  color: white;
+  width:100%;
+  text-decoration: none;
+  border-radius: 30px; /* rounded pill shape */
+  font-weight: bold;
+  font-size: 32px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 0 0 #dac0a4; 
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-align: center;
+  width:100%;
+  margin-bottom:1dvh;
+  max-height:30%;
+}
+
+.back-button:hover{
+  background-color: #3a6447;
+  box-shadow: 0 4px 0 0 #7a6a58; 
+  transform: translateY(-2px);
 }
 
 .content {

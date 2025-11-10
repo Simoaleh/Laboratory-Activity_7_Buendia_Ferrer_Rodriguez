@@ -143,7 +143,7 @@ body {
 .input-group-login {
     display: flex;
     gap: 25px;
-    width: auto%;
+    width: auto;
     margin-bottom: 20px;
     margin-top:30%;
 }
@@ -297,5 +297,73 @@ input[type="checkbox"]:checked {
     margin-bottom: 5px;
     height: 1.5em; /* Ensure enough vertical space */
     text-align: center;
+}
+
+/* Toast / Notification styles */
+.toast-container {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+}
+.toast {
+    min-width: 220px;
+    max-width: 420px;
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    transform: translateY(-6px);
+    opacity: 0;
+    transition: opacity 200ms ease, transform 200ms ease;
+    white-space: pre-line; /* allow newlines for error lists */
+}
+.toast--visible { opacity: 1; transform: translateY(0); }
+.toast--success { background: linear-gradient(90deg,#2ecc71,#27ae60); color: #053006; }
+.toast--error { background: linear-gradient(90deg,#ff6b6b,#ff4d4d); color: #330000; }
+.toast--info { background: rgba(0,0,0,0.85); color: #fff; }
+
+/* Input error outline */
+.input-error {
+    box-shadow: 0 0 0 3px rgba(255,77,77,0.14) inset, 0 0 0 2px rgba(255,77,77,0.22);
+}
+
+/* Make logo show pointer when clickable */
+.logo { cursor: pointer; }
+
+/* Ensure input hover only affects opacity (no color/transform changes) */
+.form-field-wrapper,
+.form-field-wrapper input,
+input:not([type="checkbox"]):not([type="submit"]):not([type="button"]) {
+    transition: opacity 150ms ease;
+}
+.form-field-wrapper:hover,
+.form-field-wrapper:hover input,
+input:not([type="checkbox"]):not([type="submit"]):not([type="button"]):hover {
+    opacity: 0.95;
+}
+
+/* Fix browser autofill white background (Chrome/Edge) — force inset box-shadow to match wrapper */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ffffff !important; /* keep text white */
+    -webkit-box-shadow: 0 0 0 1000px #558B5E inset !important; /* recolor autofill background */
+    box-shadow: 0 0 0 1000px #558B5E inset !important;
+    transition: background-color 5000s ease-in-out 0s; /* prevent yellow flash */
+}
+
+/* Firefox autofill (limited support) */
+input:-moz-autofill,
+textarea:-moz-autofill {
+    box-shadow: 0 0 0 1000px #558B5E inset !important;
+    -moz-text-fill-color: #ffffff !important;
 }
 
