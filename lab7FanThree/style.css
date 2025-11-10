@@ -140,6 +140,13 @@ body {
 .input-group > .form-field-wrapper {
     flex-grow: 1;
 }
+.input-group-login {
+    display: flex;
+    gap: 25px;
+    width: auto%;
+    margin-bottom: 20px;
+    margin-top:30%;
+}
 .terms-checkbox{
     text-align:center;
     justify-content: center;
@@ -258,13 +265,12 @@ input[type="checkbox"]:checked {
 
 .BUTTON {
   display: inline-block;
-  padding: 12px 30px;
+  padding: 20px 25px;
   background-color: #558B5E;
   color: white;
-    width:100%;
-
+  width:100%;
   text-decoration: none;
-  border-radius: 50px; /* rounded pill shape */
+  border-radius: 30px; /* rounded pill shape */
   font-weight: bold;
   font-size: 16px;
   text-transform: uppercase;
